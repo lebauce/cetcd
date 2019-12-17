@@ -273,8 +273,8 @@ int cetcd_curl_setopt(CURL *curl, cetcd_watcher *watcher) {
 
     curl_easy_setopt(curl, CURLOPT_CONNECTTIMEOUT, watcher->cli->settings.connect_timeout);
 #if LIBCURL_VERSION_NUM >= 0x071900
-    curl_easy_setopt(watcher->curl, CURLOPT_TCP_KEEPALIVE, 1L);
-    curl_easy_setopt(watcher->curl, CURLOPT_TCP_KEEPINTVL, 1L); /*the same as go-etcd*/
+    curl_easy_setopt(curl, CURLOPT_TCP_KEEPALIVE, 1L);
+    curl_easy_setopt(curl, CURLOPT_TCP_KEEPINTVL, 1L); /*the same as go-etcd*/
 #endif
     curl_easy_setopt(curl, CURLOPT_USERAGENT, "cetcd");
     curl_easy_setopt(curl, CURLOPT_POSTREDIR, 3L);     /*post after redirecting*/
